@@ -1,36 +1,6 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 03.12.2021 21:13:23
--- Design Name: 
--- Module Name: Test_Bench - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use STD.textIO.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Test_Bench is
 --  Port ( );
@@ -86,9 +56,9 @@ Estimulos_Desde_Fichero : process
     
     begin
     
--- Semisumador_Estimulos.txt contiene los estímulos y los tiempos de retardo para el semisumador.
+-- Semisumador_Estimulos.txt contiene los estÃ­mulos y los tiempos de retardo para el semisumador.
         file_open(  Input_File, "C:\Users\usuario\Desktop\javi\eii\Electronica\FSM\FSM.txt", read_mode );
--- Semisumador_Estimulos.csv contiene los estímulos y los tiempos de retardo para el Analog Discovery 2.
+-- Semisumador_Estimulos.csv contiene los estÃ­mulos y los tiempos de retardo para el Analog Discovery 2.
         file_open( Output_File, "C:\Users\usuario\Desktop\javi\eii\Electronica\FSM\FSM.csv", write_mode );
         
 -- Titles: Son para el formato EXCEL *.CSV (Comma Separated Values):
@@ -105,15 +75,15 @@ Estimulos_Desde_Fichero : process
         
             readline( Input_File, Input_Line );
             
-            read( Input_Line, Delay, Correcto );	-- Comprobación de que se trata de un texto que representa
-													-- el retardo, si no es así leemos la siguiente línea.           
+            read( Input_Line, Delay, Correcto );	-- ComprobaciÃ³n de que se trata de un texto que representa
+													-- el retardo, si no es asÃ­ leemos la siguiente lÃ­nea.           
             if Correcto then
 
                 read( Input_Line, Input_Data );		-- El siguiente campo es el vector de pruebas.
                 
                 x   <= TO_STDLOGICVECTOR( Input_Data )( 0 );
                 cke <= TO_STDLOGICVECTOR( Input_Data )( 1 );
-													-- De forma simultánea lo volcaremos en consola en csv.
+													-- De forma simultÃ¡nea lo volcaremos en consola en csv.
                 write( Std_Out_Line,        Delay, right, 5 ); -- Longitud del retardo, ej. "20 ms".
                 write( Std_Out_Line,         Coma, right, 1 );
                 write( Std_Out_Line,   Input_Data, right, 5 ); --Longitud de los datos de entrada.
