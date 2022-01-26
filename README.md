@@ -4,3 +4,4 @@ Algunos diseños en VHDL
 -Secuencial: Solo hay circuitos secuenciales que no usan FSMs y un ejemplo de test bench.   
 -FSMs: Solo hay circuitos secuenciales que usan FSMs y un ejemplo de test bench.   
 -Extras: Diseños útiles y cosas para aprender.
+-PLC: Diseño de un PLC.
